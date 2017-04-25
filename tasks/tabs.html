@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+    <!-- Just for basic styling. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.30.9/react-bootstrap.js"></script>
+   
+    <style>
+       
+		/* red tab css*/
+	    .redbar .nav-tabs>li.active>a, .redbar .nav-tabs>li.active>a:focus, .redbar .nav-tabs>li.active>a:hover {
+			border-bottom: 3px solid red !important;
+			position: relative;
+            top: 2px;
+	    } 
+	    .redbar .nav-tabs {
+			border-bottom: 3px solid #F79393;
+		}
+		.redbar .nav-tabs>li>a:hover {
+			border-bottom: 3px solid red !important;
+			position: relative;
+            top: 2px;
+	    }
+	   
+	    /* green tab css*/
+	    .greenbar .nav-tabs>li.active>a, .greenbar .nav-tabs>li.active>a:focus, .greenbar .nav-tabs>li.active>a:hover {
+			border-bottom: 3px solid green !important;
+			position: relative;
+            top: 2px;
+	    }	   	   
+	   .greenbar .nav-tabs {
+			border-bottom: 3px solid #6ECD75 ;
+		}	
+		.greenbar .nav-tabs>li>a:hover {
+			border-bottom: 3px solid green !important;
+			position: relative;
+            top: 2px;
+	    }
+	   
+	   /* common css*/
+	    .redbar a[id^=noanim-tab-example-tab], .greenbar a[id^=noanim-tab-example-tab] {
+			border: none !important;
+	    }
+		.redbar .nav-tabs>li>a, .greenbar .nav-tabs>li>a {
+		    top: 2px !important;
+		}
+	   
+    </style>
+      
+  </head>
+    
+  <body>
+    <div id="root" style="margin-top: 25px;"></div>
+      
+    <script type="text/babel">
+        const {Tabs, Tab} = ReactBootstrap;
+
+        class App extends React.Component {
+
+            constructor(props) {
+                super(props);
+
+                this.state = {
+                    
+					config: {
+						redcolor : "redbar",
+						greencolor: "greenbar"
+					},
+					data: [
+						{
+							tabContent:'Tab1 Content',
+							tabTitle: 'Tab 1'
+						},
+						{
+							tabContent:'Tab2 Content',
+							tabTitle: 'Tab 2'
+						},
+						{
+							tabContent:'Tab3 Content',
+							tabTitle: 'Tab 3'
+						}
+						
+					]                  
+                }
+            }
+
+            render() {
+                return (     
+                    <ViewComponent config={this.state.config.greencolor} data={this.state.data}/>              
+                )
+            }
+        }
+
+        const ViewComponent = (props) => {
+            return (
+				<div className={props.config}> 
+					<Tabs defaultActiveKey={0} animation={false} id="noanim-tab-example"> {props.data.map((obj, i) => 
+						<Tab eventKey={i} title={obj.tabTitle} key={i}> {obj.tabContent}</Tab>
+					)} </Tabs> 
+				</div>
+			)
+        }
+        
+        //validation
+        ViewComponent.PropTypes = {
+			data: React.PropTypes.array.isRequired,
+			config: React.PropTypes.object.isRequired
+		}
+
+        ReactDOM.render(<App />,document.getElementById('root'));
+    </script>
+      
+  </body>
+</html>

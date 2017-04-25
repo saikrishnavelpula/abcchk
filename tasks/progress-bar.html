@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Learn Game Development at ZENVA.com</title>
+    <!-- Just for basic styling. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.30.9/react-bootstrap.js"></script>
+   
+    <style>
+       .progressContainer {
+           display: -webkit-box;
+       }
+       .progress {
+           width: 15em;
+           height: 0.8em;
+           border-radius: 0;
+       }
+       .percentage {
+           padding-left: 14px;
+       }
+    </style>
+      
+  </head>
+    
+  <body>
+    <div id="root" style="margin-top: 25px;"></div>
+      
+    <script type="text/babel">
+        const {ProgressBar} = ReactBootstrap;
+
+        class App extends React.Component {
+
+            constructor(props) {
+                super(props);
+
+                this.state = {                    
+					config: {
+						successStatus: "success",
+						infoStatus: "info",
+						warningStatus: "warning",
+						dangerStatus: "danger"
+					},
+					data : [
+                        {
+                            percentageCompletion: 40,
+							status: 'success'
+                        },
+                        {
+                            percentageCompletion: 20,
+							status: 'info'
+                        },
+                        {
+                            percentageCompletion: 60,
+							status: 'warning'
+                        },
+                        {
+                            percentageCompletion: 80,
+							status: 'danger'
+                        }
+                    ]
+                }
+            }
+
+            render() {
+                return (   
+                <div>  
+                    <ViewComponent config= {this.state.config.successStatus} data={this.state.data} />  
+                    <ViewComponent config= {this.state.config.infoStatus} data={this.state.data} />  
+                    <ViewComponent config= {this.state.config.warningStatus} data={this.state.data} />  
+                    <ViewComponent config= {this.state.config.dangerStatus} data={this.state.data} />              
+                </div>
+                )
+            }
+        }
+
+        const ViewComponent = (props) => {
+            return (
+                <div className="container">
+                    {props.data.map((obj, i) => 
+                        <div className="progressContainer" key = {i}> 
+                              <ProgressBar bsStyle={props.config} now={obj.percentageCompletion} /> 
+                              <span className="percentage">{obj.percentageCompletion}%</span>
+                        </div>
+                    )}
+                </div>
+            )
+        }
+        
+        //validation
+        ViewComponent.propTypes = {
+             data: React.PropTypes.array.isRequired
+        }
+
+        ReactDOM.render(<App />,document.getElementById('root'));
+    </script>
+      
+  </body>
+</html>
