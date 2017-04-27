@@ -1,0 +1,39 @@
+	
+import React from 'react';
+import {VictoryPie,VictoryTheme,VictoryLabel,VictoryContainer} from 'victory';
+
+const Pie1 = (props) => {
+  return (  
+	  
+		 <VictoryPie
+		  data={[
+			{percentageCompleted: props.data.completedPercentage, color: props.data.completedPercentage >= props.data.target? props.config.greenColor:props.config.redColor},
+			{percentageCompleted: 100-props.data.completedPercentage, color:props.config.greyColor },
+
+		  ]}
+		  
+		  y="percentageCompleted"
+		  style={{
+			  data: {fill: (d) => d.y ? d.color : props.config.greyColor},
+			  labels: {fontSize: 12},
+			  parent: {border: "1px solid #ccc"}
+		  }}
+		  theme={VictoryTheme.grayscale}
+		  containerComponent={<VictoryContainer responsive={false} title="Chart of Q1 Profit"/>}
+		  labelComponent={ <VictoryLabel 
+			textAnchor="middle" verticalAnchor="middle"
+			x={0} y={0}
+			text={props.data.completedPercentage +"%" +'\n' + props.data.status}
+			style={{ fontSize: 20 }}
+		  />} 
+
+		  labels={(datum) => ""}
+		  width={props.config.width}
+		  height={props.config.height}
+		  padding={props.config.pie1_padding}
+		  innerRadius = {props.config.pie1_innerRadius}
+	   />
+	)
+}
+
+export default Pie1;

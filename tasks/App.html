@@ -1,0 +1,57 @@
+import React, {Component} from 'react'
+import Pie1 from './Pie1';
+import Pie2 from './Pie2';
+
+class App extends Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			config: {
+				width: 400,
+				height: 280,
+				greenColor: "green",
+				redColor: "red",
+				greyColor: "grey",
+				whiteColor: "white",
+				pie1_padding:80,
+				pie1_innerRadius:70,
+				pie2_padding:60,
+				pie2_innerRadius:52
+			},
+			data: [
+				{
+					completedPercentage:70,
+					target:20, 
+					status: 'completed'
+				},
+				{
+					completedPercentage:30,
+					target:60,
+					status: 'pending'
+				}
+			]
+		}
+	}
+
+    render() {
+        console.log('App::render()');
+        return (
+            <section>            
+			   <div>{this.state.data.map((obj, i) =>  
+				 <div className="test">
+					<div className ="bottom">
+						<Pie1 config={this.state.config} data={obj} />
+					</div>
+					<div className ="top">
+						<Pie2 config={this.state.config} data={obj} />
+					</div>
+				 </div>
+				)}
+			  </div>
+            </section>
+        )
+    }
+}
+
+export default App

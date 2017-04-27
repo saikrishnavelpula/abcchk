@@ -1,0 +1,37 @@
+import React from 'react';
+import {VictoryPie,VictoryTheme,VictoryLabel,VictoryContainer} from 'victory';
+
+const Pie2 = (props) => {
+	const x = (props.data.target)*3.6;
+	const styles =  `rotate(${x}deg)`;
+  
+	return (
+		 
+		<VictoryPie
+		  data={[
+			{ percentageCompleted: 100,color: props.data.completedPercentage>props.data.target? props.config.greenColor:props.config.redColor},
+			{ percentageCompleted: 1,color: props.data.completedPercentage>=props.data.target? props.config.greenColor:props.config.redColor},
+
+		  ]}
+		  
+		  y="percentageCompleted"
+		  style={{
+			  data: {fill: (d) => d.y > 1? props.config.whiteColor : d.color},
+			  labels: {fontSize: 12},
+			  parent: {border: "0px",transform :styles},
+		  }}
+		  theme={VictoryTheme.grayscale}
+		  labels={(datum) => ""}
+		  containerComponent={<VictoryContainer responsive={false} title="Chart of Q1 Profit"/>}
+		  width={props.config.width}
+		  height={props.config.height}
+		  padding={props.config.pie2_padding}
+		  labelComponent={<VictoryLabel dy={20}/>}
+		  containerComponent={<VictoryContainer/>}  
+		  innerRadius = {props.config.pie2_innerRadius}
+		   
+	   />
+	)
+}
+
+export default Pie2;
