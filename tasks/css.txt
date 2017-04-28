@@ -1,0 +1,28 @@
+css:
+
+
+/* grid component */
+.contentRow {
+font-size: 1.5em;
+}
+
+.container {
+width:75% !important;
+margin-left:2px !important;
+}
+
+.header {
+display: -webkit-box;
+}
+
+.labelContent {
+font-size: 3em;
+}
+
+.glyphicon-comment {
+    color: green;
+}
+
+.glyphicon-alert {
+color:red;
+}

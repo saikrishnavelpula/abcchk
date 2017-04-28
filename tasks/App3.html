@@ -1,0 +1,59 @@
+import React, {Component} from 'react'
+import GridInstance from './GridInstance';
+
+class App extends Component {
+	
+	constructor(props) {
+		super(props);
+		this.state = {
+			Grap: [
+				{
+					field:'Nport',
+					value:12345,
+					status:""
+					
+				},
+				{
+					field:'Current Step',
+					value:'abcd',
+					status:""
+				},
+				{
+					field:'Due',
+					value:'18',
+					status: ""
+				},
+				{
+					field:'Filling Due',
+					value:'28-April-2017',
+					status: ""
+				}
+			],
+			DataLabel: [
+				{
+					field:1,
+					value:'comment',
+					status:'glyphicon glyphicon-comment'
+				},
+				{
+					field:2,
+					value:'alert',
+					status:'glyphicon glyphicon-alert'
+				}
+			]
+		}
+	}
+	
+    render() {
+        console.log('App::render()');
+        return (
+			
+				<div>
+				<GridInstance Grap={this.state.Grap}/>
+				<GridInstance Grap={this.state.DataLabel}/>
+			</div>
+		)
+    }
+}
+
+export default App;
