@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Learn Game Development at ZENVA.com</title>
+    <!-- Just for basic styling. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/victory/0.18.4/victory.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/victory/0.18.4/victory.min.js"></script>  
+   
+   <style>
+       section
+       .test div {
+          position: absolute;
+        }
+       .test:last-child{
+           margin-left: 400px;
+       }
+
+        .top{
+          z-index: 999999
+        }
+        .bottom{
+          z-index: -999999
+        }
+
+        div.top > svg > g > path:first-child  {
+            opacity:0
+        }
+   </style>     
+  </head>
+    
+  <body>
+    <div id="root"></div>
+      
+    <script type="text/babel">
+
+    const {VictoryPie,VictoryTheme,VictoryLabel,VictoryContainer} = Victory;
+    
+    class App extends React.Component {
+         
+        constructor(props) {
+            super(props);
+            this.state = {
+                config: {
+					width: 400,
+					height: 280,
+					greenColor: "green",
+					redColor: "red",
+					greyColor: "grey",
+					whiteColor: "white"
+				},
+				data: 
+                    {
+                        completedPercentage:70,
+                        target:65, 
+                        status: 'completed'
+                    }
+                
+            }
+           //this.clearInput = this.clearInput.bind(this);
+        }
+         
+       
+        
+        
+   componentDidMount() {
+       const x = (this.state.data.target)*3.6;
+        const styles =  `rotate(${x}deg)`;
+  
+      debugger;
+      var abc = ReactDOM.findDOMNode(this.refs.myInput)
+          abc.children[0].children[0].children[1].style.transform = styles;
+          console.log(abc);
+          
+  
+  }
+   
+        render() {
+            
+            return (
+                <section>            
+                  <div>  
+                <div className="test">
+                    <div className ="bottom">
+                        <Pie1 config={this.state.config} data={this.state.data} />
+                    </div>
+                    <div className ="top" ref = "myInput">
+                        <Pie2 config={this.state.config} data={this.state.data} />
+                    </div>
+                </div>
+               
+            </div>
+                </section>
+                
+            );
+          
+        }
+    }
+
+  
+
+    const Pie1 = (props) => {
+      return (  
+          
+             <VictoryPie
+              data={[
+                {percentageCompleted: props.data.completedPercentage, color: props.data.completedPercentage >= props.data.target? props.config.greenColor:props.config.redColor},
+                {percentageCompleted: 100-props.data.completedPercentage, color:props.config.greyColor },
+
+              ]}
+              
+              y="percentageCompleted"
+              style={{
+				  data: {fill: (d) => d.y ? d.color : props.config.greyColor},
+				  labels: {fontSize: 12},
+				  parent: {border: "1px solid #ccc"}
+              }}
+              theme={VictoryTheme.grayscale}
+              containerComponent={<VictoryContainer responsive={false} title="Chart of Q1 Profit"/>}
+              labelComponent={ <VictoryLabel 
+                textAnchor="middle" verticalAnchor="middle"
+                x={0} y={0}
+                text={props.data.completedPercentage +"%" +'\n' + props.data.status}
+                style={{ fontSize: 20 }}
+              />} 
+
+              labels={(datum) => ""}
+              width={props.config.width}
+              height={props.config.height}
+              padding={80}
+              innerRadius = {70}
+           />
+        )
+    }
+    
+    const Pie2 = (props) => {
+        const x = (props.data.target)*3.6;
+        const styles =  `rotate(${x}deg)`;
+      
+        return (
+             
+            <VictoryPie
+              data={[
+                { percentageCompleted: 100,color: props.data.completedPercentage>props.data.target? props.config.greenColor:props.config.redColor},
+                { percentageCompleted: 1,color: props.data.completedPercentage>=props.data.target? props.config.greenColor:props.config.redColor},
+
+              ]}
+              
+              y="percentageCompleted"
+              style={{
+				  data: {fill: (d) => d.y > 1? props.config.whiteColor : d.color},
+				  labels: {fontSize: 12},
+				  parent: {border: "0px"},
+              }}
+              theme={VictoryTheme.grayscale}
+              labels={(datum) => ""}
+              containerComponent={<VictoryContainer responsive={false} title="Chart of Q1 Profit"/>}
+              width={props.config.width}
+              height={props.config.height}
+              padding={60}
+              labelComponent={<VictoryLabel dy={20}/>}
+              containerComponent={<VictoryContainer/>}  
+              innerRadius = {52}
+               
+           />
+        )
+    }
+      
+    ReactDOM.render(<App />,document.getElementById('root'));
+    </script>
+      
+  </body>
+</html>
