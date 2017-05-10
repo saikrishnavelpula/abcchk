@@ -1,0 +1,115 @@
+import React, { Component } from 'react';
+
+import VictoryLineChart from './Container/VictoryLineChart';
+
+export default class App extends Component {
+  render() {
+    return (
+     <div>
+      
+      <VictoryLineChart />
+     </div>
+    );
+  }
+}
+
+
+/*Container*/
+import React, { Component } from 'react';
+import bootstrap,{ ProgressBar,Tabs,Tab } from 'react-bootstrap';
+import VictoryLineChartComponent from '../Component/VictoryLineChartComponent';
+
+export default class VictoryLineChart extends React.Component {
+          
+        constructor(props) {
+          super(props);
+          this.state = {
+              data :[
+                     {"month": 'Jun-2016', "Percentage": 100},
+                     {"month": 'Jul-2016', "Percentage": 20 },
+                     {"month": 'Aug-2016', "Percentage": 40 },
+                     {"month": 'Sep-2016', "Percentage":30 }
+                    ],
+              config :{width:800,height:300},
+              xaxisvalue:['Jun-2016', 'Jul-2016', 'Aug-2016','Sep-2016']
+          }  
+          
+        }
+        render() {
+          return (
+            <div className="container">
+              <h1>Victory  chart</h1>
+              <section>
+              <VictoryLineChartComponent data={this.state.data} config={this.state.config} xaxisvalue={this.state.xaxisvalue}/>
+              </section>
+            </div>
+      );
+   }
+}
+
+
+
+
+
+/*Component*/
+import React, { Component,PropTypes } from 'react';
+import { render } from 'react-dom';
+import { VictoryContainer,VictoryLine,VictoryAxis,VictoryTheme,VictoryChart,interpolation,VictoryScatter   } from 'victory';
+
+
+class VictoryLineChartComponent extends React.Component {
+ 
+ 
+
+  render() {
+    
+
+     return (
+    <VictoryChart height={this.props.config.height} 
+                  width={this.props.config.width} 
+     >
+      <VictoryAxis domainPadding={{x: [0, 20]}} dependentAxis label="y-axis" tickValues={[0,60, 70, 80, 90,100]} />
+      <VictoryAxis label="x-axis" tickValues={this.props.xaxisvalue} />
+      
+      <VictoryScatter 
+        data={this.props.data}
+    
+      x="month"
+      y="Percentage"
+        
+      />
+     <VictoryLine 
+        data={this.props.data}
+         
+      x="month"
+      y="Percentage"
+      theme={VictoryTheme.dark}    
+        style={{
+          data: {
+            stroke: '#822722',
+            
+          },
+        }}
+      />     
+    </VictoryChart>
+  );
+  }
+}
+
+
+export default VictoryLineChartComponent
+
+
+
+
+/* Styles */
+  <style>
+    /* VictoryChart */
+    section {
+        position: absolute;
+    }
+    svg >g:nth-child(2) >g >line {
+        stroke:#ddd !important;
+        stroke-dasharray :5,1;
+    }
+ </style>      

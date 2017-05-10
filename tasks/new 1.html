@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>sample example</title>
+    <!-- Just for basic styling. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/victory/0.18.4/victory.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/victory/0.18.4/victory.min.js"></script>  
+   
+   <style>
+        .mainContainer {
+			height: 50% !important;
+			width: 35% !important;
+		}
+		svg path {
+			
+		}
+   </style>     
+  </head>
+    
+  <body>
+    <div id="root"></div>
+      
+    <script type="text/babel">
+
+    const {VictoryBar, VictoryLabel} = Victory;
+	
+	const Wrapper = (props) => {
+		
+		var dataArray = props.data;
+		var maxValue = Math.max.apply(Math,dataArray.map(function(o){return o.y;}));
+		var maxValueKey, indexValue;
+		dataArray.map((obj, i) => {if(obj.y==maxValue){maxValueKey = obj.x; indexValue=i;}});
+		
+		var newObject = {x: maxValueKey, y: maxValue+0.5}	
+		var copyData = dataArray[indexValue];
+		dataArray[indexValue] = newObject;
+		dataArray[props.data.length] = copyData;
+		
+		return (
+			<svg viewBox="0 0 420 250">	
+			  <VictoryBar name="bar"
+				data={dataArray}
+				y="y"
+				width={450}
+				
+				domainPadding={{x: [0,120], y: [0,40]}}
+				standalone={false}
+				style={{
+				  data: { fill:(d) => d.y == maxValue ? "#a81d36" : d.y == maxValue+0.5 ? "black" :"#d8d8d8" , width: (d) => d.y == maxValue+0.5 ? 1 : 5 },
+				  labels: {fontSize: 25}
+				}}
+				labelComponent={<VictoryLabel y={280}/>}
+			  />
+			</svg>
+		);
+	}
+
+	class App extends React.Component {
+	   constructor(props) {
+            super(props);
+            this.state = {
+				data: [
+                  {x: "a", y: 1.5}, {x: "b", y: 0.8}, {x: "c", y: 0.6},  {x: "d", y: 2.5}, {x: "e", y: 0.9}, {x: "f", y: 0.8}, {x: "g", y: 1}, {x: "h", y: 1.2},
+				  {x: "i", y: 0.6}, {x: "j", y: 0.8}, {x: "k", y: 0.6},  {x: "l", y: 0.8}, {x: "m", y: 2.8}, {x: "n", y: 0.8}, {x: "o", y: 1}, {x: "p", y: 1.2},
+				  {x: "q", y: 0.6}, {x: "r", y: 0.8}, {x: "s", y: 0.6},  {x: "t", y: 0.8}, {x: "w", y: 3}, {x: "x", y: 0.8}, {x: "y", y: 1}, {x: "z", y: 1.2},
+				  
+				   
+                ]
+            }
+       }
+	  render() {
+		return (
+		<div className="mainContainer">
+		  <Wrapper data={this.state.data}/>
+		
+		  </div>
+		);
+	  }
+	}
+	ReactDOM.render(<App/>, document.getElementById('root'));
+    </script>
+      
+  </body>
+</html>
