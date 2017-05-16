@@ -28,7 +28,7 @@
       
     <script type="text/babel">
 
-    const {VictoryBar, VictoryLabel} = Victory;
+    const {VictoryBar, VictoryLabel, VictoryTooltip} = Victory;
 	
 	const Wrapper = (props) => {
 		
@@ -55,7 +55,7 @@
 				  data: { fill:(d) => d.y == maxValue ? "#a81d36" : d.y == maxValue+0.5 ? "black" :"#d8d8d8" , width: (d) => d.y == maxValue+0.5 ? 1 : 5 },
 				  labels: {fontSize: 25}
 				}}
-				labelComponent={<VictoryLabel y={280}/>}
+				labelComponent={<VictoryTooltip/>}
 			  />
 			</svg>
 		);
@@ -66,7 +66,7 @@
             super(props);
             this.state = {
 				data: [
-                  {x: "a", y: 1.5}, {x: "b", y: 0.8}, {x: "c", y: 0.6},  {x: "d", y: 2.5}, {x: "e", y: 0.9}, {x: "f", y: 0.8}, {x: "g", y: 1}, {x: "h", y: 1.2},
+                  {x: "a", y: 1.5, label: "right-side-up"}, {x: "b", y: 0.8}, {x: "c", y: 0.6},  {x: "d", y: 2.5}, {x: "e", y: 0.9, label: "right-side-up"}, {x: "f", y: 0.8}, {x: "g", y: 1}, {x: "h", y: 1.2},
 				  {x: "i", y: 0.6}, {x: "j", y: 0.8}, {x: "k", y: 0.6},  {x: "l", y: 0.8}, {x: "m", y: 2.8}, {x: "n", y: 0.8}, {x: "o", y: 1}, {x: "p", y: 1.2},
 				  {x: "q", y: 0.6}, {x: "r", y: 0.8}, {x: "s", y: 0.6},  {x: "t", y: 0.8}, {x: "w", y: 3}, {x: "x", y: 0.8}, {x: "y", y: 1}, {x: "z", y: 1.2},
 				  

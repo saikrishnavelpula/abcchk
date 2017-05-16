@@ -1,0 +1,98 @@
+
+import React, { Component } from 'react';
+import './App.css';
+//import Trucated from './AppComp';
+class Label extends Component {
+
+  constructor(props) {
+  super(props);
+  this.state = {
+      data: {
+        withEllipsis: "Sai krishns trncated Thi is trncatedThi is trncatedThi is trncatedThi is trncatedThi is trncatedThi is trncatedThi is trncated",
+        withoutEllipsis: "Without Ell"
+      }
+      }
+
+  this.showTooltip = this.showTooltip.bind(this);
+  this.hideTooltip = this.hideTooltip.bind(this);
+  
+}
+ showTooltip(event) {
+  debugger;
+const tooltip = "<span class='tooltiptext' data-tooltip >"+ event.currentTarget.textContent + "</span>";
+if (event.currentTarget.offsetWidth < event.currentTarget.scrollWidth) {
+      event.currentTarget.insertAdjacentHTML('afterend',tooltip)
+  }
+};
+
+
+ hideTooltip(event) {
+  
+  if(event.currentTarget.nextSibling !== null){
+    event.currentTarget.nextSibling.remove();
+  }
+};
+
+  render() {
+    return (
+      <div>
+        <div className="tooltipbox">
+          <div className="truncate" onMouseEnter={this.showTooltip} onMouseLeave={this.hideTooltip}>{this.state.data.withEllipsis} </div>
+          
+         </div>
+        <div className="tooltipbox"> 
+          <div className="truncate" onMouseEnter={this.showTooltip} onMouseLeave={this.hideTooltip}>{this.state.data.withoutEllipsis}</div>
+          
+        </div>
+    </div>
+
+      
+
+    );
+  }
+}
+export default Label;
+
+***
+
+.tooltipbox {
+    position: relative;
+    
+}
+
+.tooltiptext {
+    
+        max-width: 159px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 24px;
+    left: 0%;
+    /* margin-left: -60px; */
+    /* height: auto; */
+    word-wrap: break-word;
+}
+
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.truncate {
+  margin-top: 150px;
+max-width:100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+}
