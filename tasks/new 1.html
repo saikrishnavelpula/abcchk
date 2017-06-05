@@ -29,7 +29,7 @@
       
     <script type="text/babel">
 
-    const {VictoryBar, VictoryLabel, VictoryTooltip} = Victory;
+    const {VictoryBar, VictoryChart, VictoryGroup, VictoryLine, VictoryLabel, VictoryTooltip} = Victory;
 	
 	
 
@@ -47,58 +47,26 @@
 	  render() {
 		return (
 		<div className="mainContainer">
-		 <VictoryBar
-
-    labelComponent={
-              <VictoryTooltip
-                flyoutStyle={{ stroke: "red" }}
-                
-              />
-            }
-            labels={(d) => `${d.x}\n${d.y}`}
-    data={[
-      {x: "january 1", y: 5},
-      {x: "january 2", y: 20},
-      {x: "january 3", y: 4},
-      {x: "january 4", y: 8},
-      {x: "january 5", y: 7}
-    ]}
-    style={{
-      data: {fill: "tomato", width: 20}
-    }}
-    domainPadding={{x: [0, 180]}}
-    events={[{
-      target: "data",
-      eventHandlers: {
-        onMouseOver: () => {
-          return [
-            {
-              target: "data",
-              mutation: () => ({style: {fill: "red", width: 30}})
-            }, {
-              target: "labels",
-              mutation: () => ({ active: true })
-            }
-          ];
-        },
-        onMouseOut: () => {
-          return [
-            {
-              target: "data",
-              mutation: () => {}
-            }, {
-              target: "labels",
-              mutation: () => ({ active: false })
-            }
-          ];
-        }
-      }
-    }]}
-  />
+		 <VictoryChart>
+  	<VictoryGroup data={[
+	{x: 1, y: 5, label: 5},
+  {x: 2, y: 4, label: 4},
+  {x: 3, y: 7, label: 7},
+  {x: 4, y: 3, label: 3},
+  {x: 5, y: 4, label: 4},
+]}>
+  		<VictoryLine />
+      <VictoryBar
+      	labelComponent={<VictoryTooltip/>}
+        style={{ data: { fill: 'none', width: '90'}}}
+      />
+      </VictoryGroup>
+  </VictoryChart>
 		
-		  </div>
+		</div>  
 		);
 	  }
+
 	}
 	ReactDOM.render(<App/>, document.getElementById('root'));
     </script>
