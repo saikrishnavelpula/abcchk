@@ -1,0 +1,91 @@
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+	  width
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+     
+    }
+	
+
+	li.dropdown:hover > ul.dropdown-menu {
+     display:table; width: 100%; text-align: center; left:0; right:0;
+	background-color: #005eb8;
+    
+	}
+	
+	.menulist:hover{
+		background: #005eb8 !important;
+		color: #fff !important;
+	}
+	.navbar-nav .menudrop{margin-top:-1px !important; }
+	
+	.menulist .menulist-title:hover{
+		color: #fff !important;
+	}
+	.navbar-default .navbar-nav>li:hover a{color:#fff !important;}
+	.submenulist{
+		list-style:none;
+		padding-left:0;
+	}
+	.submenulist h3{margin-bottom:0;font-size: 1.2em;font-weight: 700;color: #fff;line-height: 24px;    width: 100%;}
+	.submenulist a:hover{
+		text-decoration:none;
+		color:#fff;
+	}
+	.submenulist .submenulist-item:first-child{
+		padding-top:0;
+	}
+	.submenulist .submenulist-item{
+		text-align:left;
+		list-style:none;
+	}
+	.submenulist .submenulist-item .submenulist-item-sub{
+		list-style:none;
+	}
+	.submenulist .submenulist-item .submenulist-item-sub:before{
+		font-family: 'FontAwesome';
+		font-size:14px;
+		font-weight:bold;
+		color:#fff;
+		content:"\f105";
+		width:12px;
+		display: inline-block;
+	}
+	.maincontentbanner h2{color:#129adb;text-align:left;padding-left:0;}
+	.maincontentbanner .bannerpart{padding-left:0;}
+	.maincontentbanner .sidebar{padding-right:0;}
+	.maincontentbtm{margin-top:25px;}
+	.maincontentbtm .services{padding-left: 44px;}
+	.maincontentbtm .services:first-child{padding-left:0;}
+	.maincontentbtm .services:last-child{padding-right:0;text-align:right;    padding-left: 70px;}
+	.logopart{background-color:#fff;height:80px;border-top: 0;}
+	.logopart .logo{padding: 0px 0 0 71px;}
+	.logopart .logo img{width:80%;}
+	.logopart .logo  a{padding-top:0px;padding-bottom:0px;}
+	.logopart .logopart-right{padding-top:28px;}
+	.footerclass{background-color:#005eb8;} 
+	.footerclass h3{color:#fff;font-size:16px;}
+	.footerclass ul{list-style:none;}
+	.footerclass .sixsectionfooter{float:left;}
+	.leftsidebar{background-color:#fbfbfb;height:500px;padding-top:5px;}
+	.leftsidebar ul{list-style:none;padding-left:0}
+	.leftsidebar ul li{list-style:none;text-align:left;padding-bottom:5px;}
+	.leftsidebar ul li a{color:#000;line-height:20px;}
+	.innerContent h1{padding-left:15px;color:#005eb8;}
+	.innerpage .breadcrumb{background:none;}
+	.innerpage .breadcrumb a{color:#000;}
+	.mainmenu{padding-right: 56px;}
+	.searchbaralg{margin-top: 9px;}
+	 @media only screen and (max-width:1024px){
+		.mainmenu{padding-right: 0px;}
+		.logopart .logo{padding: 0px;}
+		
+	}
+	@media only screen and (max-width:991px){
+		.grid-demo [class*="col-"]{border-right: 0px; }
+	}

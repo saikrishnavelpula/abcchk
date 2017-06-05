@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>British Gas</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/vnd.microsoft.icon">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Yamm styles-->
+    <link href="assets/css/yamm.css" rel="stylesheet">
+    <link href="assets/css/demo.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="assets/js/angular.js"></script>
+    <script type="text/javascript" src="assets/js/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/appcontroller.js"></script>
+    <script type="text/javascript" src="app/appdirective.js"></script>
+    <script type="text/javascript" src="app/appconfig.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/common.css">
+</head>
+
+<body ng-app="britishGas">
+    <div class="">
+        <nav class="navbar">
+            <div class="widthadj">
+                <div class="navbar navbar-default yamm  ">
+                    <div class="container">
+                        <ul class="nav navbar-nav  ">
+                            <li><a ui-sref="home">home</a></li>
+                            <li class="active"><a ui-sref="business">Business</a></li>
+
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right topMenu">
+                            <li><a class="" data-toggle="dropdown" href="#">login or Register</a></li>
+                            <li><a class="" data-toggle="dropdown" href="#">Contqact Us</a></li>
+                            <li><a class="" data-toggle="dropdown" href="#">Emergencies</a></li>
+                            <li><a class="" data-toggle="dropdown" href="#">Help</a></li>
+                            <li class="searchbaralg">
+                                <input type="text" class="form-control" placeholder="Search" />
+                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                
+
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div ui-view></div>
+            </div>
+        </div>
+
+    </div>
+    <footer class="container-fluid footerclass">
+        <div class="container">
+            <div class="secondary-navigation">
+            <div class="sixsectionfooter fleft col-md-2">
+                    <div class="parsys footer-parsys-1">
+                        <div class="parsys footerlink section">
+                            <h3>Gas &amp; electricity</h3>
+                            <ul>
+                                <li><a class="ems-menulinks sub-links megamenu-livelinks" href="/business/gas-and-electricity/get-a-quote?cid=FooterLink_GAQ" title="Get a quote">Get a quote</a></li>
+                                <li><a class="ems-menulinks sub-links megamenu-livelinks" href="/business/gas-and-electricity/business-electricity?cid=FooterLink_Business_electricity" title="Business electricity">Business electricity</a></li>
+                                <li><a class="ems-menulinks sub-links megamenu-livelinks" href="/business/gas-and-electricity/business-gas?cid=FooterLink_Business_gas" title="Business gas">Business gas</a></li>
+                                <li><a class="ems-menulinks sub-links megamenu-livelinks" href="/business/gas-and-electricity/switching-process?cid=FooterLink_Switchingprocess" title="Switching process">How to switch to us</a></li>
+                                <li><a class="ems-menulinks sub-links megamenu-livelinks" href="/business/gas-and-electricity/connections-and-metering?cid=FooterLink_CM" title="New gas &amp; electricity connections">New gas &amp; electricity connections</a></li>
+                                <li><a class="ems-menulinks sub-links megamenu-livelinks" href="/business/gas-and-electricity/energy-price-plans?cid=FooterLink_Contracts" title="Contracts">Contracts</a></li>
+                                <li><a class="ems-menulinks sub-links megamenu-livelinks" href="/business/gas-and-electricity/brokers?cid=FooterLink_Partners" title="Partners">Partners</a></li>
+                                <li><a class="ems-menulinks sub-links megamenu-livelinks" href="/business/offers?cid=FooterLink_Ouroffers" title="Our offers">Our offers</a></li>
+                            </ul>
+                            <div class="cb"></div>
+                        </div>
+                    </div>
+                </div>
+            <div class="sixsectionfooter fleft col-md-2">
+                    <div class="parsys footerlink section">
+                        <h3>Energy services</h3>
+                        <ul>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/energy-services/maintenance?cid=FooterLink_Maintenance" title="Maintenance">Maintenance</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/energy-services/maintenance/careplan?cid=FooterLink_Careplan" title="Gas appliance service">Gas appliance service</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/energy-services/maintenance/compliance-and-servicing?cid=FooterLink_GasSafetyChecks" title="Gas safety checks">Business gas safety checks</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/energy-services/maintenance/boiler-repair-on-demand?cid=FooterLink_BoilerBreakdown" title="Business boiler breakdowns">Business boiler breakdowns</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/energy-services/maintenance/design-and-installation?cid=FooterLink_BoilerInstall" title="Business boiler installation quotes">Business boiler installation quotes</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/energy-services/maintenance/dyno-rod?cid=FooterLink_DynoRod" title="Dyno-Rod">Dyno-Rod</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/energy-services/efficiency/electric-vehicles?cid=FooterLink_EV" title=" Charging points for electric cars and electric vans">Charging points for electric cars and electric vans</a></li>
+
+                            <li role="presentation">
+                                <a role="menuitem" class="ems-menulinks sub-links" title="Biomass boilers" href="/business/energy-services/biomass-boilers">Biomass boilers</a>
+                            </li>
+
+                        </ul>
+                        <div class="cb"></div>
+                    </div>
+                </div>
+            <div class="sixsectionfooter fleft col-md-2">
+                <div class="parsys footer-parsys-3">
+                    <div class="parsys footerlink section">
+
+                        <h3>Smarter working</h3>
+                        <ul>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/smarter-working/energy-made-simple/?cid=FooterLink_EnergyMadeSimple" title="Energy Made Simple">Energy Made Simple</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/smarter-working/industry-insight?cid=FooterLink_IndustryInsight" title="Industry insight">Industry insight</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/smarter-working/case-studies?cid=FooterLink_CaseStudies" title="Case studies">Case studies</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/blog/?cid=FooterLink_ReadOurBlog" title="Read our blog" target="_blank">Read our blog<sup></sup></a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/smarter-working/events?cid=FooterLink_Events" title="Events">Events</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/smarter-working/hive-active-heating?cid=HiveFooterLink" title="Hive Active Heating">Hive Active Heating<sup style="color: #fff;">TM</sup></a></li>
+
+                        </ul>
+                        <div class="cb"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="sixsectionfooter fleft col-md-2">
+                <div class="parsys footer-parsys-4">
+                    <div class="parsys footerlink section">
+
+                        <h3>Help &amp; advice </h3>
+                        <ul>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/help-and-advice/?category=switching-to-british-gas-business&amp;cid=FooterLink_SwitchtoBGB" title="Switching to British Gas business">Switching to British Gas business</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/help-and-advice/?category=new-connections-and-metering&amp;cid=FooterLink_NewCM" title="New connections &amp; metering">New connections &amp; metering</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/help-and-advice/?category=bills-and-payments&amp;cid=FooterLink_BillsPayments" title="Bills &amp; payments">Bills, payments &amp; Direct Debits</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/help-and-advice/?category=meters-and-readings&amp;cid=FooterLink_MetersReadings" title="Meters &amp; readings">Meters &amp; readings</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/help-and-advice/?category=moving-premises&amp;cid=FooterLink_HelpMovingPremises" title="Moving premises">Moving premises</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/help-and-advice/?category=energy-efficiency&amp;cid=FooterLink_SwitchtoBGB" title="Energy efficiency">Energy efficiency</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/help-and-advice/?category=boiler-maintenance-and-repair&amp;cid=FooterLink_BoilerRepair" title="Boiler maintenance &amp; repair">Boiler maintenance &amp; repair</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/help-and-advice/?category=micro-business-and-ofgem&amp;cid=FooterLink_MicrobusOFGEM" title="Micro business &amp; Ofgem">Micro business &amp; Ofgem</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/help-and-advice/?category=online-account-management&amp;cid=FooterLink_OAM" title="Online account management">Online account management</a></li>
+
+                        </ul>
+                        <div class="cb"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="sixsectionfooter fleft col-md-2">
+                <div class="parsys footer-parsys-5">
+                    <div class="parsys footerlink section">
+
+                        <h3>Your account</h3>
+                        <ul>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/submit-gas-meter-read?productType=Gas&amp;cid=FooterLink_SMRGas" title="Submit gas reading">Submit gas reading</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/submit-meter-read/your-details?productType=Electricity&amp;cid=FooterLink_SMRElec" title="Submit electricity reading">Submit electricity reading</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/your-account/how-to-read-my-bill?cid=FooterLink_UnderstandingYrBill" title="How to understand your bill">How to understand your bill</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/business/your-account/moving-premises?cid=FooterLink_OAMMovingPremises" title="Moving premises">Moving premises</a></li>
+
+                        </ul>
+                        <div class="cb"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="sixsectionfooter fleft col-md-2">
+                <div class="parsys footer-parsys-6">
+                    <div class="parsys footerlink section">
+
+                        <h3>British Gas at home</h3>
+                        <ul>
+
+                            <li><a class="ems-menulinks sub-links" href="/products-and-services/gas-and-electricity.html?cid=FooterLink_BGRElec" title="Residential electricity ">Residential electricity </a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/products-and-services/gas-and-electricity.html?cid=FooterLink_BGRGas" title="Residential gas">Residential gas</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/products-and-services/boilers-and-central-heating.html?cid=FooterLink_BGRBoiler" title="Residential boiler">Residential boiler</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/products-and-services/boilers-and-central-heating/boiler-repairs.html?cid=FooterLink_BGRBoilerRepair" title="Residential boiler repair">Residential boiler repair</a></li>
+
+                            <li><a class="ems-menulinks sub-links" href="/products-and-services/boilers-and-central-heating/cover.html?cid=FooterLink_BGRBoilerCover" title="Residential boiler cover">Residential boiler cover</a></li>
+
+                        </ul>
+                        <div class="cb"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

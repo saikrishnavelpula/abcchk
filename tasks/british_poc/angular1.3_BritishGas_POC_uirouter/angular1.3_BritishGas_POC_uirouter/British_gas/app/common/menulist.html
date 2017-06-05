@@ -1,0 +1,26 @@
+<li class="dropdown menulist sai" ng-repeat="menulist in menudata" >
+	<a class="dropdown-toggle menulist-title" data-toggle="dropdown" href="#" ng-mouseover="hovereff()">{{menulist.title}}</a>
+	<ul class="dropdown-menu menudrop" role="menu" style="" ng-show="dropdownchk">			
+		<li class="grid-demo">	
+			<div class="row">	
+				<div ng-repeat="x in menulist.subMenuNavigation" ng-attr-class="col-md-{{12/menulist.subMenuNavigation.length}}" >
+					<ul class="submenulist">
+						<li ng-repeat="sub in x.sections" class="submenulist-item">
+						<h3 ng-if="sub.subTitle!=''"><a ng-click="change()" ui-sref=".{{sub.link}}">{{sub.subTitle}}</a></h3>
+							<ul>
+								<li data-toggle="collapse" data-target=".nav-collapse" ng-repeat="submenu in sub.menus" class="submenulist-item-sub" >
+									<a ng-click="change()" ng-if="submenu.title" ui-sref=".{{submenu.link}}" >{{submenu.title}}</a>
+								</li>
+							</ul>
+							<img ng-if="sub.bannerImage!=''" ng-src="assets/images/{{sub.bannerImage}}" />
+						<h3 ng-if="sub.Login"><a href="/business/your-account/{{sub.link}}"><span class="primary-link-green">{{sub.Login}}</span></a></h3>
+						<h3 ng-if="sub.Register"><a href="{{sub.link}}"><span class="primary-link-feedback">{{sub.Register}}</span></a></h3>
+						</li>
+						 
+					</ul>
+				
+				</div>		
+			</div>
+		</li>
+	</ul>
+</li>
